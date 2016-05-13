@@ -1,1 +1,18 @@
-
+G=(V,E) where V: vertices; E: edges
+graph: directed or undirected
+  + direted: each edge has a direction A-------->B : A is parent of B
+  + undirected: move in both directions b/t vertices
+edges: weighted or unweighted
+2 adjacent edges if they are connected to same vertex
+1 edges joins 2 vertices: incident to both vertices
+degree of a vertex is # of edges incident to it
+loop: 1 edge links a vertex to itself
+2 vertices connected by 2+ edges, these edges called parallel edges
+simple graph: doesn't have any loop or parrallel edges
+complete graph: every 2 pairs of vertices are connected
+a graph is connected if there exists a path b/t any 2 vertices in the graph
+a subgraph of a graph G whose vertex is a subset of that of Gand whose edge set is a subset of that of G
+connected and undireted: 
+  cycle is a closed path starts from a vertex and end at the same vertex
+  connected graph is a tree if it doesn't have cyles
+  spanning tree of a graph G is a connected subgraph of G and the subgraph is a tree that contains all vertices in G
