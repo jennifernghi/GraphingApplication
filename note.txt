@@ -16,3 +16,56 @@ connected and undireted:
   cycle is a closed path starts from a vertex and end at the same vertex
   connected graph is a tree if it doesn't have cyles
   spanning tree of a graph G is a connected subgraph of G and the subgraph is a tree that contains all vertices in G
+complete graph of n vertices: n(n-1)/2 edges
+
+REPRESENTING A GRAPH: store it;s vertices and edges in a program. the data structure: arrays or list.
+    VERTICES: array or list
+      String[] vertices ={"Settle" "San Francisco", "Los Angeles"};
+      vertices can be objects of any type
+          City city0 = new City("Seattle", 608660,"Mike");
+          City city1 = new City("Houston", 209945,"Annise");
+          City[] vertices ={city0, city1};
+      vertices can be labled using natural # from 0 to n-1 for a graph of n vertice
+      u can reference a vertex by its name or index(easier)
+    EDGES: 
+      EDGE ARRAY 2 dimentional array
+        int[][] edges = {{0,1},{0,3}};
+      EDGE OBJECTS: useful if u don't know edges in advance
+        public class Edge{
+          int u;
+          iny v;
+          
+          public Edge(int u, int v){
+            this.u =u;
+            this.v =v;
+          }
+          
+          public boolean equals(Object o){
+            return u==((Edge)o).u && v==((Edge)o).v;
+          }
+        }
+        ArraList<Edge> list = new ArrayList<>();
+        list.add(new Edge(0,1));
+      ==> EDGE ARRAY AND EDGE OBJECT NOT EFFICIENT FOR INTERNAL PROCESSING
+      
+      ADJACENCY MATRICES
+        graph n vertices, use n x n matrix - adjacencyMatrix[i][j]. Each element in the array is 0 or 1
+        1 if there is 1 edge from vertex i to verex j; otherwise, 0
+        int[][] adjacencyMatrix = {
+          {0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0},//seattle
+          {1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0}//san francisco
+        };
+        undirected: matrix is symmetric, to save storage u can use a ragged array
+      ADJACENCY LISTS
+        ADJACENCY VERTEX LISTS 
+          for a vertex i contains virtices that are adjacent to i
+          simpler for representing unweighted graphs
+        ADJACENCY EDGE LISTS: array, arraylist, linkedlist. ArrayList more efficient
+          for a vertex i contains the edges that are adjacent to i
+          more flexible for a wide range of graph application
+          easy to add additional constraints on edges
+        may define array of lists n entries, each is a list
+      ==> if the graph is dense(lots of edges)--> adjacency matrix (waste alot of space)
+      ==> if the graph iis very sparse( very few edges) --> adjacency lists
+      ==> O(1) check 2 vertices connected using adjacency matrix
+      ==> O(n) to print all edges in agrph using adjacency lists
